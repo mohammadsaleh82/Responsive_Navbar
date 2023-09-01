@@ -1,0 +1,136 @@
+@font-face {
+    font-family: 'Vazir';
+    src: url('../fonts/Vazir.eot');
+    src: url('../fonts/Vazir.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Vazir.woff2') format('woff2'),
+    url('../fonts/Vazir.woff') format('woff'),
+    url('../fonts/Vazir.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+text-decoration: none;
+}
+body{
+    font-family: 'Vazir',sans-serif;
+    background: url("bg2.jpg")center / cover no-repeat;
+    min-height: 100vh;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.navlist{
+    position: relative;
+    display: flex;
+}
+.navlist li{
+    list-style-type: none;
+    margin-right: 2rem;
+}
+.navlist li a{
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 500;
+    /*text-shadow: rgb(255,0,255) 1px 0 10px;*/
+    display: flex;
+}
+.navlist li a span{
+    position: relative;
+transition: 0.5s;
+    overflow: hidden;
+}
+.navlist li a span .up{
+    display: inline-flex;
+}
+.navlist li a:hover span .up{
+    transform: translatey(100%);
+}
+
+.navlist li a span .down{
+    position: absolute;
+    left: 0;
+    text-shadow: rgba(255,0,255,1) 1px 0px 10px;
+    transform: translateY(-100%);
+}
+.navlist li a:hover span .down{
+    transform: translateY(0);
+}
+
+.menuIcon {
+    display: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.menuIcon .bar,
+.menuIcon::after,
+.menuIcon::before{
+    content: "";
+    height: 3px;
+    width: 100%;
+    display: block;
+    background: #fff;
+    border-radius: 3px;
+    margin: 4px 0;
+    transition: 0.5s;
+}
+
+
+.menuIcon.active::before{
+    transform: rotate(-45deg) translate(-6px, 5px);
+}
+.menuIcon.active .bar{
+    display: none;
+}
+.menuIcon.active::after{
+    transform: rotate(46deg) translateY(-1px);
+}
+@media (max-width: 768px) {
+    .menuIcon{
+        display: block;
+    }
+    header{
+        background: rgba(0,0,0,0.5);
+    }
+    .navlist{
+        position: absolute;
+        left: 0;
+        top: 100%;
+        transition: 0.3s;
+        background: rgba(0,0,0,0.5);
+        display: block;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+    }
+    .navlist li a{
+        display: block;
+       text-align: center;
+        overflow: hidden;
+        margin: 1.5rem 0;
+    }
+    .navlist .li{
+        margin: 0;
+    }
+    .navlist.activeMenu{
+        height: 17rem;
+    }
+}
